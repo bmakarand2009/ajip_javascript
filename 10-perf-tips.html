@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Javascript Object Literal</title>
+    <script src="js/jquery.min.js"></script>
+    <script>
+    $(document).ready(function() {
+       console.log("Dom Loaded");
+    //wrong way
+    console.time('first');
+    for (var i = 0; i<1000; i++) {
+          var t1 = $("#test1").text();
+          $("#test1").html(t1+" sample"+i);
+       };
+    console.timeEnd('first');
+    console.log("lets start second now");
+    console.time('myother');
+    //right way
+    var tElem = $("#test1");
+    for (var y = 0; y<1000; y++) {
+          var t2 = tElem.text();
+          tElem.html(t2+"<br> another"+y);
+       };
+    console.timeEnd('myother');
+    });
+
+    </script>
+
+</head>
+<body>
+    <h1 id="test1">My Header</h1>
+    <p> hello para </p>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Javascript Object Literal</title>
+    <script>
+        //create a class Employee, with first and LastName
+    /* Note : This is the right way to define a class in Javascript,
+    using the prototype object, which is there for each object
+    This is the right way to define a Javascript Object..
+    */
+
+    var Employee = function(fName, lName) {
+        this.fName = fName;
+        this.lName = lName;
+        //private var
+        var bonus = 10000;
+        //privledge function
+        this.getBonus= function(){
+            bonus = bonus + 1000;
+            return bonus;
+        }
+        
+    }
+    //public methods
+    Employee.prototype.getFirstName = function() {
+        return this.fName;
+    }
+    Employee.prototype.getLastName = function() {
+        return this.lName;
+    }
+    Employee.prototype.getSecretBonus = function() {
+        return bonus;
+    }
+
+
+    //return this; is not needed, its implicit, new keyword
+    //instructs the function that this represents the object if not it will repsent window object
+    var emp1 = new Employee("john", "adam");
+    var emp2 = new Employee("Krish","Pattrick");
+    //if a function begins with a uppercase letter, new is
+    console.log(emp1.toString());
+    console.log(emp1.getFirstName());
+    console.log(emp1);
+    console.log("emp bonus is - "+ emp1.getBonus() + ":" + emp2.getBonus());
+
+    Employee.MAX_COUNT = 10; //static var   
+    console.log("Count" + Employee.MAX_COUNT);
+
+    if(emp1 instanceof Employee) {
+        console.log("I am an employee");
+    }
+
+    //console.log(JSON.stringify(emp1)); //to get the JSON string //{"fName":"john","lName":"adam"}
+
+    </script>
+
+</head>
+<body>
+    <h1>My Header</h1>
+</body>
+</html>

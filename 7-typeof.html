@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-`8" />
+	<title>Type Of</title>
+     <script>
+     /* Best use of typeof operator are
+     1. to test if the a particular js file has been loaded or not, if loaded do not load it again.
+     This is very useful, if you have multiple js files and are loading common script in all of them
+
+     2. to check the type of the variable if its number or function or something else
+     */
+       var  commonModule_js;
+        var undef = "undefined";
+        if(typeof commonModule_js == undef){
+            console.log("module is undefined");
+            commonModule_js =1;
+        }
+        alert(typeof commonModule_js);
+    <script>
+  </head>
+<body>
+   <h1> My Header </h1>
+</body>
+</html>

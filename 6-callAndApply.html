@@ -1,0 +1,48 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Call And Apply Html</title>
+	<script type="text/javascript">
+  //Just a Calculator Example, Version2
+// arguments is not a Array but like an array object, so we will use call
+//Refer also to Javascript-class (call, apply method example)
+
+//we dont want "WebContent/6-callAndApply.html"to restric to two elements, hence will use the arguments object
+calculate = function() {
+    //final argument is the function object
+    //as pop method returns the final object and remove it from the array
+    console.log("calling method pop on arguments which is a Array method");
+    var func = Array.prototype.pop.apply(arguments);
+    return func.apply(null,arguments);
+}
+
+var add = function(x, y) {
+    return x + y;
+}
+
+var multiply = function(x, y) {
+    return x * y;
+}
+
+var result = calculate(5, 6, add);
+console.log(result);
+
+
+/* Other way to look at call and apply is, when you define a function, the this keyword
+represents the object itself, the way to tell the function which object it is, is using call/apply. And this function can be invoked on any object now.
+This is how you will define static methods in Javascript */
+function run(from, to) {
+  print("The ", this.adjective, " rabbit runs from ", from, " to ", to, ".");
+}
+var whiteRabbit = {adjective: "white", speak: speak};
+var fatRabbit = {adjective: "fat", speak: speak};
+run.apply(whiteRabbit, ["A", "B"]);
+run.call(fatRabbit, "the cupboard", "the fridge");
+
+    </script>
+</head>
+<body>
+   <h1> My Header </h1>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<html>
+    <head>
+       <link href="css/11-jquerySelectorBasics.css" rel="stylesheet" type="text/css">
+       <script type="text/javascript" src="js/jquery.min.js"></script>
+       <script>
+               $(document).ready(function() {
+                   console.log("Dom Loaded");
+                   $("#pageHeader h1 span").click( function(){
+                        alert("This element is about to Fade");
+                        $("#pageHeader h1 span").fadeOut("slow");
+                   });
+                   $("#buttonBar ul li").click(function(e) {
+                        var elem = e.target;
+                        var txt = $(elem).text();
+                        alert("hello button click"+txt);
+                   });
+                   $("#olList").click(function(e){
+                        var aBtn = $(e.target);
+                        var btnId = aBtn.attr('id');
+                        if(btnId=='btn4'){
+                            alert("TextBox Val is" +$("#txBox0").val());
+                        }else if(btnId == 'btn5'){
+                            alert($("#pageHeader").html());
+                        }else if(btnId == 'btn6'){
+                            var arr = [ "one", "two", "three", "four", "five" ];
+                            $.each(arr, function(index, value) {
+                               console.log(value);
+                               return (this != "three"); // will stop running after "three"
+                           });
+                        }else if(btnId == 'btn7'){
+                            $("#pageHeader").css("color","red")
+                                            .slideUp(2000).slideDown(2000);
+                        }
+                   });
+
+
+
+
+               });
+
+       </script>
+    </head>
+<body id="css-zen-garden">
+<div id="container">
+    <div id="intro">
+        <div id="buttonBar">
+                <ul>
+                    <li>Button1</li>
+                    <li>Button2</li>
+                    <li>Button3</li> 
+                </ul>
+               <ol id="olList">
+                    <li><input id="btn4" type="button" value="firstName val()"></li>
+                    <li><input id="btn5" type="button" value="pagehdr html()"> </li>
+                    <li><input id="btn6" type="button" value="each()"></li>
+                    <li><input id="btn7" type="button" value="chaining"></li>
+
+                </ol>
+        </div>
+        <div id="textBoxBar">
+            First name: <input type="text" id="txBox0" name="fname"><br>
+        </div>
+        <div id="pageHeader">
+            <h1>
+                <span>css Zen Garden</span>
+            </h1>
+            <h2>
+                <span>
+                    The Beauty of <acronym title="Cascading Style Sheets">CSS</acronym>
+                    Design
+                </span>
+            </h2>
+        </div>
+        <div id="quickSummary">
+            <p class="p1">
+                <span>
+                    A demonstration of what can be accomplished visually through <acronym title="Cascading Style Sheets">CSS</acronym>
+                    -based design. Select any style sheet from the list to load it into this page.
+                </span>
+            </p>
+            <p class="p2">
+                <span>
+                    Download the sample
+                    <a href="/zengarden-sample.html" title="This page's source HTML code, not to be modified.">html file</a>
+                    and
+                    <a href="/zengarden-sample.css" title="This page's sample CSS, the file you may modify.">css file</a>
+                </span>
+            </p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

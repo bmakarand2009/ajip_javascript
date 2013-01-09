@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Javascript Object Literal</title>
+    <script type="text/javascript">
+      /* Object literal Notation : Allows to create objects with properties and methods.
+    Note 1. these are objects and Not Classes, so if you have to create one more employee object
+    you will to repeat the properties and methods again.
+         2. this represents the object here, so in this case it will be e1
+    */
+
+    var e1 = {
+        firstName: "john",
+        lastName: "doe",
+        myCars : new Array("Saab","Volvo","BMW"),
+        getFullName: function() {
+            return this.firstName + " " + this.lastName;
+        }
+    }
+    console.log(e1.getFullName())
+
+    //you can add a new property later
+    e1["address"] = "Milton Pkwy"; //can also use [ ] notation to access properties, infact non standard properties
+    console.log(e1.address);
+
+
+    //you can delete a property
+    delete e1.firstName;//non existing property value is undefined
+    console.log(e1);
+
+    //in operator can be used to check if property exists
+    if("firstName" in e1) {
+        console.log("name already exists");
+    }else{
+        console.log("name is deleted,lets initialize it again");
+        e1.firstName = "johnV1";
+        console.log(e1.getFullName());
+    }
+
+    //How to iterate over JS Object
+    for(prop in e1){
+        console.log("prop is " + e1[prop]);
+    }
+
+        
+    //JavaScript Objects can be converted to JSON by Stringify method
+    console.log("******")
+    console.log("JSON Representation is " + JSON.stringify(e1));
+
+    //JSON can be converted to Javascript Objects
+    var myJsonStr = '{"firstName":"Ricky","lastName":"Martin","myCars":["Merc","Porsche","BMW"]}';
+    var e2 = JSON.parse(myJsonStr);
+    console.log(e2);
+
+    var bool = Boolean(true);
+    for(prop in bool){
+        console.log("prop is " + prop);
+    }
+    </script>
+</head>
+<body>
+    <h1>My Header</h1>
+</body>
+</html>
